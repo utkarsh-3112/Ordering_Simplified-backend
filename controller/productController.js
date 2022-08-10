@@ -54,7 +54,7 @@ exports.createProduct = (req, res, next) => {
       (err, rows) => {
         if (err) {
           console.log(err);
-          return res.json({ msg: 'Error in adding user' });
+          return res.json({ msg: 'Error in adding product' });
         }
 
         return res.json({

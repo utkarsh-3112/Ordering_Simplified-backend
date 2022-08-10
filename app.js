@@ -1,9 +1,9 @@
-require('dotenv').config();
+require('dotenv').config();   // automatically loads environment variables from a.enc files into the process
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
-const cors = require('cors');
+const cors = require('cors');  // supports secure cross-origin requests and data transfers between browsers and servers
 const userRouter = require('./router/userRouter');
 const orderRouter = require('./router/orderRouter');
 const productRouter = require('./router/productRouter');
@@ -12,7 +12,7 @@ const fileUpload = require('express-fileupload');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
 app.use(cors());
 app.use(cookieParser());

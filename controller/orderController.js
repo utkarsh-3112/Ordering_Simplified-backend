@@ -1,7 +1,7 @@
 const db = require('../db.js');
 
 exports.createOrder = (req, res, next) => {
-  //TODO: create order
+
 
   let userOrders = req.body;
   console.log(userOrders);
@@ -11,9 +11,7 @@ exports.createOrder = (req, res, next) => {
   });
 
   db.query(
-    'INSERT INTO ORDERS(user_id, product_id, address, pincode, city) VALUES ?',
-    [orders],
-    (err, result) => {
+    'INSERT INTO ORDERS(user_id, product_id, address, pincode, city) VALUES ?',[orders],(err, result) => {
       if (err) {
         console.log(err);
         res.json({

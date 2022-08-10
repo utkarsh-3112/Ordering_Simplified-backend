@@ -18,7 +18,7 @@ router.get("/logout", authentication.logOut);
 router.get(
   "/",
   authentication.protect,
-  // authentication.restrictTo("admin"),
+  authentication.restrictTo("admin"),
   getUsers
 );
 
