@@ -1,10 +1,11 @@
-const mysql = require("mysql2");
+const { Pool } = require("pg");
 
-const pool  = mysql.createPool({
-    connectionLimit : 10,
-    host            : 'localhost',
-    user            : 'root',
-    database        : 'ordering_simplified'
-});
+const db = new Pool({
+    user: 'postgres',
+    host: 'db.ywzgdlbyjbqwnfsaipiv.supabase.co',
+    database: 'postgres',
+    password: 'LhV8KuNVNtfdrYQ6',
+    port: 5432,
+})
 
-module.exports = pool;
+module.exports = db;

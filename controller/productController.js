@@ -2,16 +2,17 @@ const db = require('../db.js');
 const cloudinary = require('cloudinary').v2;
 
 cloudinary.config({
-  cloud_name: process.env.cloud_name,
-  api_key: process.env.api_key,
-  api_secret: process.env.api_secret,
+    cloud_name: 'da0osgwdg',
+    api_key: '994464457938511',
+    api_secret: 'V3EEVLlKdjSE8kBsO4mXBf8Zs54'
 });
 
 exports.getProducts = (req, res, next) => {
   db.query(
-    'SELECT id, name, cover_image FROM products',
+    'SELECT * FROM products',
     [],
     function (err, rows, fields) {
+        console.log(rows)
       // Connection is automatically released when query resolves
       if (err) {
         return res.json({
@@ -40,7 +41,7 @@ exports.createProduct = (req, res, next) => {
     }
 
     db.query(
-      'INSERT INTO products(name, description, category, shopkeeper_id, price, discount, cover_image, images) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+      'INSERT INTO products(name, description, category, price, discount, cover_image) VALUES (?, ?, ?, ?, ?, ?)',
       [
         req.body.name,
         req.body.description,
